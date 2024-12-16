@@ -97,7 +97,7 @@
 						for the conference. Every contribution, big or small, makes a significant difference</h4> <br>
 					<h1 class="countdown" id="countdown" style="color:chocolate;"></h1>
 					<br>
-					<a href="#donate" class="head-btn btn text-uppercase">Donate Now</a>
+					<a onclick="copyToClipboard()" class="head-btn btn text-uppercase">Donate Now</a>
 				</div>
 			</div>
 		</div>
@@ -109,12 +109,12 @@
 		<div class="container">
 			<div class="row d-flex callto-wrap justify-content-between pt-40 pb-40">
 				<h3 class="text-white">Please support and donate now</h3>
-				<a href="#" class="head-btn head-btn2 btn text-uppercase">Donate Now</a>
+
+				<a onclick="copyToClipboard()" class="head-btn head-btn2 btn text-uppercase">Donate Now</a>
 			</div>
 		</div>
 	</section>
 	<!-- End callto Area -->
-
 
 	<!-- Start project Area -->
 	<section class="project-area section-gap" id="project">
@@ -208,8 +208,6 @@
 						Your support will cover my conference registration fees, travel, and accommodation. Every
 						contribution, no matter how small, will make a significant impact.
 					</p>
-					<button class="primary-btn mt-20 text-uppercase ">learn more<span
-							class="lnr lnr-arrow-right"></span></button> <br>
 				</div>
 			</div>
 		</div>
@@ -220,7 +218,7 @@
 		<div class="container">
 			<div class="row d-flex callto-wrap justify-content-between pt-40 pb-40">
 				<h3 class="text-white">Please me and Donte now</h3>
-				<a href="#" class="head-btn head-btn2 btn text-uppercase">Support Now</a>
+				<a onclick="copyToClipboard()" class="head-btn head-btn2 btn text-uppercase">Support Now</a>
 			</div>
 		</div>
 	</section>
@@ -237,6 +235,67 @@
 		</div>
 	</section>
 	<!-- End donate Area -->
+
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<style>
+		.body {
+			text-align: center;
+			height: 100vh;
+			margin: 0;
+			align-items: center;
+			justify-content: center;
+			background-color: #f0f0f0;
+		}
+
+		.button {
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			background-color: #28a745;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			transition: background-color 0.3s ease;
+		}
+
+		button:hover {
+			background-color: #218838;
+		}
+
+		.cont {
+			margin-top: 20%;
+		}
+	</style>
+
+	<script>
+		const walletAddress = "AvYHfM9da9T4oypdpostS7LeJqRaNfvMHvoUjiDMi1aL";
+		function showPopup() {
+			Swal.fire({
+				title: "Send to my Solana Wallet Address",
+				text: "AvYHfM9da9T4oypdpostS7LeJqRaNfvMHvoUjiDMi1aL",
+				showCloseButton: true,
+				icon: 'success'
+			});
+		}
+
+		function copyToClipboard() {
+			navigator.clipboard.writeText(walletAddress).then(() => {
+				Swal.fire({
+					title: "Solana Wallet Address Copied!",
+					text: "Wallet address copied to clipboard.",
+					icon: 'success'
+				});
+			}).catch(err => {
+				Swal.fire({
+					title: "Error!",
+					text: "Failed to copy wallet address.",
+					icon: 'error'
+				});
+			});
+		}
+	</script>
+
 
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
