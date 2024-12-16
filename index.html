@@ -61,14 +61,45 @@
 		<div class="container">
 			<div class="row fullscreen align-items-center justify-content-start" style="height: 915px;">
 				<div class="banner-content col-lg-9 col-md-12">
+					<div></div>
+
+					<script>
+						// Set the date 10 days from now
+						const countdownDate = new Date();
+						countdownDate.setDate(countdownDate.getDate() + 10);
+
+						// Update the countdown every second
+						const countdownFunction = setInterval(() => {
+							const now = new Date().getTime();
+							const distance = countdownDate - now;
+
+							// Time calculations for days, hours, minutes, and seconds
+							const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+							const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+							const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+							const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+							// Display the result in the countdown element
+							document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+							// If the countdown is over, display a message
+							if (distance < 0) {
+								clearInterval(countdownFunction);
+								document.getElementById("countdown").innerHTML = "Countdown Finished!";
+							}
+						}, 1000);
+					</script>
 					<h1>
 						You have helped me raise<br>
 						<span style="color: red;">$0</span> out of the <span style="color: green;">$1000 </span>
 
 					</h1>
-					<h4 style="color: white;">I am seeking your support to help cover the costs associated with attending this conference,
+					<h4 style="color: white;">I am seeking your support to help cover the costs associated with
+						attending this conference,
 						including registration fees, travel, and accommodation. Any contribution, no matter how small,
 						will make a significant difference</h4> <br>
+					<h4 class="countdown" id="countdown" style="color:chocolate;"></h4>
+					<br>
 					<a href="#donate" class="head-btn btn text-uppercase">Donate Now</a>
 				</div>
 			</div>
