@@ -2,60 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Popup Box Example</title>
-    <script src=
-"https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        body {
-            text-align: center;
-            height: 100vh;
-            margin: 0;
-            align-items: center;
-            justify-content: center;
-            background-color: #f0f0f0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      display: flex;
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+    .progress {
+      background: rgba(255, 255, 255, 0.1);
+      justify-content: flex-start;
+      border-radius: 100px;
+      align-items: center;
+      position: relative;
+      padding: 0 5px;
+      display: flex;
+      height: 40px;
+      width: 500px;
+    }
 
-        button:hover {
-            background-color: #218838;
-        }
+    .progress-value {
+      animation: load 3s normal forwards;
+      box-shadow: 0 10px 40px -10px #fff;
+      border-radius: 100px;
+      background: #fff;
+      height: 30px;
+      width: 0;
+    }
 
-        .cont {
-            margin-top: 20%;
-        }
-    </style>
+    @keyframes load {
+      0% {
+        width: 0;
+      }
+
+      100% {
+        width: 68%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="cont">
-        <h3>Create popup box using SweetAlert</h3>
-        <button onclick="showPopup()">Show Popup</button>
-    </div>
-
-
-
-    <script>
-        function showPopup() {
-            Swal.fire({
-                title: "Welcome to GeeksForGeeks!",
-                text: "GeeksForGeeks is the best platform for Learning.",
-                showCloseButton: true,
-                icon: 'info'
-            });
-        }
-    </script>
+  <div class="progress">
+    <div class="progress-value"></div>
+  </div>
 </body>
 
 </html>
